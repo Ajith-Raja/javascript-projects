@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body > div {
+            width: 24em;
+            height: 30em;
+            background-color: #d6d6d6;
+        }
+        .console {
+            width: 21em;
+            height: 5em;
+            background-color: white;
+            position: relative;
+            left: 1.2em;
+            top: 1em;
+        }
+        .buttons {
+            width: 21em;
+            height: 22em;
+            position: relative;
+            top: 2em;
+            left: 1.2em;
+        }
+        .numbers {
+            width: 13.5em;
+            background-color: beige;
+            height: 17em;
+            display: inline-block;
+        }
+        .numbers > input {
+            width: 3em;
+            height: 3em;
+            margin: 1em;
+            border-style: none;
+            background-color: #d6d8da;
+        }
+        .operators {
+            background-color: #f5f5dc;
+            width: 7.2em;
+            height: 17em;
+            display: inline-block;
+        }
+        .operators > input {
+            width: 6em;
+            margin: 1em;
+            height: 3em;
+            border-style: none;
+            background-color: #d6d8da;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <div class="console">
+            <span id="total" style="padding: 5px;font-size: 2em;">0</span>
+            <span id="operation" style="float: right; font-size: 2em; padding: 5px; position: relative; top: 1.3em;">0</span>
+        </div>
+        <div class="buttons">
+            <div class="numbers" id="number">
+                <input type="button" value="9" onclick="display(this)">
+                <input type="button" value="8" onclick="display(this)">
+                <input type="button" value="7" onclick="display(this)">
+                <input type="button" value="6" onclick="display(this)">
+                <input type="button" value="5" onclick="display(this)">
+                <input type="button" value="4" onclick="display(this)">
+                <input type="button" value="3" onclick="display(this)">
+                <input type="button" value="2" onclick="display(this)">
+                <input type="button" value="1" onclick="display(this)">
+                <input type="button" value="0" onclick="display(this)">
+                <input type="button" value="00" onclick="display(this)">
+                <input type="button" value="C" style="background-color: #ef5050;">
+            </div>
+            <div class="operators">
+                <input type="button" value="+" onclick="display(this)">
+                <input type="button" value="-" onclick="display(this)">
+                <input type="button" value="*" onclick="display(this)">
+                <input type="button" value="/" onclick="display(this)">
+            </div>
+        </div>
+    </div>
+</body>
+<script>
+    var text = document.getElementById("operation");
+    var total = document.getElementById("total");
+    var display = (_this) => {
+        if (text.innerText === "0") {
+            text.innerText = "";
+        }
+        if (_this.value === "+") {
+            text.innerText += _this.value;
+        } else {
+            total.innerText = parseInt(total.innerText) + _this.value;
+            text.innerText += _this.value;
+        }
+    }
+
+    var add = () => {
+        if (text.innerText === "0") {
+            text.innerText = "0";
+        } else {
+            //text.innerText += _this.value;
+            total.innerText = parseInt(total.innerText) + 23;
+        }
+    }
+
+    var subtract = () => {
+
+    }
+
+    var multiply = () => {
+
+    }
+
+    var divide = () => {
+
+    }
+</script>
+</html>
