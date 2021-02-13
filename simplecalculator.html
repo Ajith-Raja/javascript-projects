@@ -86,24 +86,31 @@
 <script>
     var text = document.getElementById("operation");
     var total = document.getElementById("total");
+    var operation = "";
     var display = (_this) => {
         if (text.innerText === "0") {
             text.innerText = "";
         }
         if (_this.value === "+") {
             text.innerText += _this.value;
-        } else {
-            total.innerText = parseInt(total.innerText) + _this.value;
+            operation = "+";
+
+        } else if (operation === "+" ) {
             text.innerText += _this.value;
+            add(_this.value);
         }
+         else {
+             total.innerText = parseInt(total.innerText) + _this.value;
+             text.innerText += _this.value;
+         }
     }
 
-    var add = () => {
+    var add = (value) => {
         if (text.innerText === "0") {
             text.innerText = "0";
         } else {
             //text.innerText += _this.value;
-            total.innerText = parseInt(total.innerText) + 23;
+            total.innerText = parseInt(total.innerText) + parseInt(value);
         }
     }
 
